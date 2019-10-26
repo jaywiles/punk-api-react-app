@@ -43,9 +43,10 @@ class App extends Component {
           <div className="beer-info">
             {
               // how to do if statement everything is wrapped in????
-              !isLoading && beers.length ? beers.map(beer => {
+              !isLoading && beers.length > 0 ? beers.map(beer => {
                 const {name, tagline, abv, ibu} = beer;
-                return <div> key={beer} title={name}>
+                return <div key={beer} title={name}>
+                  {/* <p>Name: {name}</p> */}
                   <p>Tagline: {tagline}</p>
                   <p>ABV: {abv}</p>
                   <p>IBU: {ibu}</p>
