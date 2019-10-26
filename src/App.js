@@ -19,17 +19,11 @@ class App extends Component {
   fetchData() {
     fetch ('https://api.punkapi.com/v2/beers')
     .then(response => response.json())
-    // .then(parsedJSON => console.log(parsedJSON.map(beer => (
-    //   {
-    //     name: `${beer.name}`
-    //   }
-    // ))))
     .then(parsedJSON => parsedJSON.map(beer => ({
       name: `${beer.name}`,
       tagline: `${beer.tagline}`,
       abv: `${beer.abv}`,
       ibu: `${beer.ibu}`,
-      // mash_temp_value_c: `${beer.method.mash_temp.temp.value}`
     })))
     .then(beers => this.setState({
       beers,
@@ -50,12 +44,11 @@ class App extends Component {
               !isLoading && beers.length > 0 ? beers.map(beer => {
                 const {name, tagline, abv, ibu} = beer;
                 return <div key={beer} title={name}>
-                  <p>Name: {name} <input type="checkbox" name="like">Like</input></p>
+                  <p className="name-line">Name: {name} <button onclick="likeClicked()" className="like-button">Like</button></p>
                   {/* <button><img src={logo} alt="like" className="img-responsive"></img></button> */}
-                  <p>Tagline: {tagline}</p>
-                  <p>ABV: {abv}</p>
-                  <p>IBU: {ibu}</p>
-                  
+                  <p className="tagline-line">Tagline: {tagline}</p>
+                  <p className="abv-line">ABV: {abv}</p>
+                  <p className="ibu-line">IBU: {ibu}</p>
                   <p>###</p>
                   </div>
               }) : null
@@ -66,26 +59,6 @@ class App extends Component {
     )
   }
 }
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
+{/* <input type="checkbox" name="like">Like</input> */}
 
 export default App;
