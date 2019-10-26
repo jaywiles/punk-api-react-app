@@ -50,11 +50,12 @@ class App extends Component {
               !isLoading && beers.length > 0 ? beers.map(beer => {
                 const {name, tagline, abv, ibu} = beer;
                 return <div key={beer} title={name}>
-                  <p>Name: {name} <button className="like-button">Like</button></p>
+                  <p>Name: {name} <input type="checkbox" name="like">Like</input></p>
                   {/* <button><img src={logo} alt="like" className="img-responsive"></img></button> */}
                   <p>Tagline: {tagline}</p>
                   <p>ABV: {abv}</p>
                   <p>IBU: {ibu}</p>
+                  
                   <p>###</p>
                   </div>
               }) : null
