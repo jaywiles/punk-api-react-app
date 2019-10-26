@@ -30,11 +30,14 @@ class App extends Component {
       ibu: `${beer.ibu}`,
       // mash_temp_value_c: `${beer.method.mash_temp.temp.value}`
     })))
+    .then(beers => this.setState({
+      beers,
+      isLoading: false
+    }))
     .catch(error => console.log("parsing failed", error))
     }
 
   render() {
-  //   // return (console.log('hi'))
     const {isLoading, beers} = this.state;
     return (
       <div>
@@ -46,7 +49,7 @@ class App extends Component {
               !isLoading && beers.length > 0 ? beers.map(beer => {
                 const {name, tagline, abv, ibu} = beer;
                 return <div key={beer} title={name}>
-                  {/* <p>Name: {name}</p> */}
+                  <p>Name: {name}</p>
                   <p>Tagline: {tagline}</p>
                   <p>ABV: {abv}</p>
                   <p>IBU: {ibu}</p>
