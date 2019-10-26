@@ -44,12 +44,12 @@ class App extends Component {
               !isLoading && beers.length > 0 ? beers.map(beer => {
                 const {name, tagline, abv, ibu} = beer;
                 return <div key={beer} title={name}>
-                  <p className="name-line">Name: {name} <button onclick="likeClicked()" className="like-button">Like</button></p>
+                  <p className="name-line">{name} <button onclick="likeClicked()" className="like-button">Like</button></p>
                   {/* <button><img src={logo} alt="like" className="img-responsive"></img></button> */}
                   <p className="tagline-line">Tagline: {tagline}</p>
                   <p className="abv-line">ABV: {abv}</p>
                   <p className="ibu-line">IBU: {ibu}</p>
-                  <p>###</p>
+                  <br></br>
                   </div>
               }) : null
             }

@@ -20,3 +20,14 @@
 .App-link {
   color: #09d3ac;
 }
+
+header {
+  text-align: center;
+  font-size: 2em;
+}
+
+.name-line {
+  font-size: 1.5em;
+  text-decoration: underline;
+  font-weight: bold;
+}
