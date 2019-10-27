@@ -35,7 +35,7 @@ class App extends Component {
   render() {
     const {isLoading, beers} = this.state;
     return (
-      <div>
+      <div className="whole-page">
         <header>Good Beers</header>
         <div className={`content ${isLoading ? 'is-loading' : ''}`}>
           <div className="beer-info">
